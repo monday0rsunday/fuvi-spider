@@ -31,5 +31,5 @@ class DevvuiComSpider(CrawlSpider):
 			item["link"] = link
 			item["src"] = src
 			item["site"] = self.site
-			item["catId"] = 2
+			item["catId"] = 4
 			yield item

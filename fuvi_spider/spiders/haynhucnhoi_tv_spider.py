@@ -22,7 +22,7 @@ class HaynhucnhoiTvSpider(CrawlSpider):
 
 	site="http://haynhucnhoi.tv/"
 	ptn1 = re.compile(r"""(?m)file: "([^,]+)",""")
-	ptn2 = re.compile(r"""(?m)(http://embed.mecloud.vn/play/[0-9a-zA-Z]+)""")
+	ptn2 = re.compile(r"""(?m)TODO(http://embed.mecloud.vn/play/[0-9a-zA-Z]+)""")
 
 	def parse_item(self, response):
 		src = response.url
@@ -44,4 +44,5 @@ class HaynhucnhoiTvSpider(CrawlSpider):
 		item["src"] = src
 		item["site"] = self.site
 		item["catId"] = 1
-		yield item
+		if(link is not None):
+			yield item

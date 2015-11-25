@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS category (
 INSERT INTO category(id, title) VALUES(1, "Video");
 INSERT INTO category(id, title) VALUES(2, "Image");
 INSERT INTO category(id, title) VALUES(3, "Music");
+INSERT INTO category(id, title) VALUES(4, "Gif");
 
 CREATE TABLE IF NOT EXISTS item(
 	id int PRIMARY KEY NOT NULL AUTO_INCREMENT

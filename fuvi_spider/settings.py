@@ -57,6 +57,15 @@ DOWNLOAD_DELAY = 1
 #    'fuvi_spider.middlewares.MyCustomDownloaderMiddleware': 543,
 #}
 
+DOWNLOADER_MIDDLEWARES = {
+    'scrapy.downloadermiddlewares.retry.RetryMiddleware': 90,
+    # Fix path to this module
+    'fuvi_spider.randomproxy.RandomProxy': 100,
+    'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 110,
+}
+
+PROXY_LIST = '/tmp/proxy.lst'
+
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
 #EXTENSIONS = {
