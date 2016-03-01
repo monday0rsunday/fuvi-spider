@@ -8,9 +8,9 @@ from fuvi_spider.items import FuviItem
 
 class HaivainoiComSpider(Spider):
 	name = "haivainoi.com"
-	allowed_domains = ["www.haivainoi.com", "haivainoi.com"]
+	allowed_domains = ["www.haivainoi.video", "haivainoi.video"]
 	start_urls = [
-		"http://www.haivainoi.com/18",
+		"http://www.haivainoi.video/18",
 		# "http://www.haivainoi.com/hot"
 	]
 
@@ -26,10 +26,11 @@ class HaivainoiComSpider(Spider):
 		for article in json.loads(response.body):
 			item = FuviItem()
 			item["title"] = article.get("title").strip()
+			item["link"] = ""
 			item["sapo"] = ""
 			item["cover"] = ""
-			if article.get("type") == "image":
-				item["link"] = "http://s107.haivainoi.com/images" + article.get("content")
+			if article.get("type") == "image" or article.get("type") == "gif":
+				item["link"] = "http://files.haivainoi.video" + article.get("content")
 				item["catId"] = 2 #image
 			else:
 				item["link"] = "https://www.youtube.com/embed/" + article.get("content")
